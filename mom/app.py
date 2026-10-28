@@ -242,15 +242,9 @@ class App:
             seps = [split]
             self.layout = (nrows, 1)
         else:
-            ncol = max(1, min(4, (W - 1) // 26))
-            avail = W - 2 - (ncol - 1)
-            cols, x = [], 1
-            for i in range(ncol):
-                cw = avail // ncol + (1 if i < avail % ncol else 0)
-                cols.append((x, cw))
-                x += cw + 1
-            seps = [x0 - 1 for x0, _ in cols[1:]]
-            self.layout = (nrows, ncol)
+            cols = [(1, W - 2)]
+            seps = []
+            self.layout = (nrows, 1)
 
         def hline(y, left, mid, right, junction):
             cv.put(y, 0, left + mid * (W - 2) + right, "frame")
