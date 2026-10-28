@@ -1,0 +1,22 @@
+[project]
+name = "mom"
+version = "1.0"
+description = "MOM — Mdir for macOS: 1990년대 Mdir 감성의 터미널 파일 관리자"
+requires-python = ">=3.9"
+dependencies = [
+    "wcwidth>=0.2.13",
+    "windows-curses>=2.3; sys_platform == 'win32'",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pyte>=0.8.2"]
+
+[project.scripts]
+mom = "mom.app:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["mom"]
